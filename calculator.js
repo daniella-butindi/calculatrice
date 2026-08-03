@@ -1,3 +1,6 @@
+const screen = document.getElementById("typingzone");
+screen.value = "";
+
 const displayNumber = function(){
     const screen = document.getElementById("typingzone");
     screen.value += this.textContent;
