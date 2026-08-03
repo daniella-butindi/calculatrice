@@ -6,6 +6,13 @@ const displayNumber = function(){
     screen.value += this.textContent;
 }
 
+const displayOperateur = function(){
+    const screen = document.getElementById("typingzone");
+    if  (! estOperateur(screen.value[screen.value.length -1])){
+        screen.value += this.textContent;
+    }
+}
+
 const clearScreen = function(){
     const screen = document.getElementById("typingzone");
     screen.value ="";
@@ -15,6 +22,11 @@ const eraseScreen = function(){
     const screen = document.getElementById("typingzone");
     const valInput  = screen.value;
     screen.value = valInput.slice(0, valInput.length - 1);
+
+}
+
+const estOperateur = function(caractere){
+    return caractere === "+" || caractere === "-" || caractere === "x" || caractere === "/";
 
 }
 
@@ -29,7 +41,7 @@ const setupListeners = function(){
         boutonsNombre[i].addEventListener("click", displayNumber);
     }
     for (let i= 0; i < boutonsOperations.length; i++){
-        boutonsOperations[i].addEventListener("click", displayNumber );
+        boutonsOperations[i].addEventListener("click", displayOperateur );
     }
 }
 
