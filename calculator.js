@@ -4,9 +4,13 @@ const displayNumber = function(){
 }
 
 const setupListeners = function(){
-    const boutons = document.querySelectorAll("#numbers-buttons button");
-    for (let i = 0; i < boutons.length; i++ ){
-        boutons[i].addEventListener("click", displayNumber);
+    const boutonsNombre = document.querySelectorAll("#numbers-buttons button");
+    const boutonsOperations = document.querySelectorAll("#operations-buttons button");
+    for (let i = 0; i < boutonsNombre.length; i++ ){
+        boutonsNombre[i].addEventListener("click", displayNumber);
+    }
+    for (let i= 0; i < boutonsOperations.length; i++){
+        boutonsOperations[i].addEventListener("click", displayNumber );
     }
 }
 
