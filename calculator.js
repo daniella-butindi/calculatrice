@@ -11,11 +11,20 @@ const clearScreen = function(){
     screen.value ="";
 }
 
+const eraseScreen = function(){
+    const screen = document.getElementById("typingzone");
+    const valInput  = screen.value;
+    screen.value = valInput.slice(0, valInput.length - 1);
+
+}
+
 const setupListeners = function(){
     const boutonClear = document.getElementById("clear");
+    const boutonErase = document.getElementById("erase");
     const boutonsNombre = document.querySelectorAll("#numbers-buttons button");
     const boutonsOperations = document.querySelectorAll("#operations-buttons button");
     boutonClear.addEventListener("click", clearScreen);
+    boutonErase.addEventListener("click", eraseScreen);
     for (let i = 0; i < boutonsNombre.length; i++ ){
         boutonsNombre[i].addEventListener("click", displayNumber);
     }
