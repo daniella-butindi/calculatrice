@@ -1,6 +1,6 @@
 const displayNumber = function(){
     const screen = document.getElementById("typingzone");
-    screen.value = this.textContent;
+    screen.value += this.textContent;
 }
 
 const setupListeners = function(){
