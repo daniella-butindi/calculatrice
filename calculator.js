@@ -17,7 +17,7 @@ const displayFloat = function(){
     const screen = document.getElementById("typingzone");
     const expres = screen.value;
     for (let i = expres.length - 1; i >= 0; i--){
-        if (expres[i] === this.textContent){
+        if (estVirgule(expres[i])){
             return;
         }
         if (estOperateur(expres[i]) || i === 0){
