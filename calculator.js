@@ -13,6 +13,21 @@ const displayOperateur = function(){
     }
 }
 
+const displayFloat = function(){
+    const screen = document.getElementById("typingzone");
+    const expres = screen.value;
+    for (let i = expres.length - 1; i >= 0; i--){
+        if (expres[i] === this.textContent){
+            return;
+        }
+        if (estOperateur(expres[i]) || i === 0){
+            screen.value += this.textContent;
+            return;
+        }
+
+    }
+}
+
 const clearScreen = function(){
     const screen = document.getElementById("typingzone");
     screen.value ="";
@@ -28,6 +43,10 @@ const eraseScreen = function(){
 const estOperateur = function(caractere){
     return caractere === "+" || caractere === "-" || caractere === "x" || caractere === "/";
 
+}
+
+const estVirgule = function(caractere){
+    return caractere === ".";
 }
 
 const evaluer = function(){
@@ -63,6 +82,7 @@ const evaluer = function(){
 }
 
 const setupListeners = function(){
+    const boutonPoint = document.getElementById("float");
     const boutonEqual = document.getElementById("eq");
     const boutonClear = document.getElementById("clear");
     const boutonErase = document.getElementById("erase");
@@ -71,6 +91,7 @@ const setupListeners = function(){
     boutonClear.addEventListener("click", clearScreen);
     boutonErase.addEventListener("click", eraseScreen);
     boutonEqual.addEventListener("click", evaluer);
+    boutonPoint.addEventListener("click", displayFloat);
     for (let i = 0; i < boutonsNombre.length; i++ ){
         boutonsNombre[i].addEventListener("click", displayNumber);
     }

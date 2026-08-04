@@ -9,7 +9,7 @@ div.typing input {
     height: 60px;
 }
 
-div#numbers-buttons, div#operations-buttons, div#utilities-buttons {
+div#numbers-buttons, div#operations-buttons, div#utilities-buttons, div#other-buttons {
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     gap: 5px;
