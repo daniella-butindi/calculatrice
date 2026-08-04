@@ -30,13 +30,43 @@ const estOperateur = function(caractere){
 
 }
 
+const evaluer = function(){
+    const screen = document.getElementById("typingzone");
+    const expression = screen.value;
+    let operateur = "";
+    for (let i = 0; i < expression.length ; i++){
+        if (estOperateur(expression[i])){
+            operateur = expression[i];
+            break;
+        }
+    }
+    const listeValeurs = expression.split(operateur);
+
+    if (operateur === "+"){
+        screen.value = parseFloat(listeValeurs[0]) + parseFloat(listeValeurs[1]);
+    }
+    else if (operateur === "-"){
+        screen.value = parseFloat(listeValeurs[0]) - parseFloat(listeValeurs[1]);
+    }
+    else if (operateur === "x"){
+        screen.value = parseFloat(listeValeurs[0]) * parseFloat(listeValeurs[1]);
+    }
+    else if (operateur === "/"){
+        screen.value = parseFloat(listeValeurs[0]) / parseFloat(listeValeurs[1]);
+    }
+    
+
+}
+
 const setupListeners = function(){
+    const boutonEqual = document.getElementById("eq");
     const boutonClear = document.getElementById("clear");
     const boutonErase = document.getElementById("erase");
     const boutonsNombre = document.querySelectorAll("#numbers-buttons button");
     const boutonsOperations = document.querySelectorAll("#operations-buttons button");
     boutonClear.addEventListener("click", clearScreen);
     boutonErase.addEventListener("click", eraseScreen);
+    boutonEqual.addEventListener("click", evaluer);
     for (let i = 0; i < boutonsNombre.length; i++ ){
         boutonsNombre[i].addEventListener("click", displayNumber);
     }
