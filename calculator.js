@@ -52,6 +52,10 @@ const evaluer = function(){
         screen.value = parseFloat(listeValeurs[0]) * parseFloat(listeValeurs[1]);
     }
     else if (operateur === "/"){
+        if (parseFloat(listeValeurs[1]) === 0){
+            screen.value = "ZeroDivisionError";
+            return;
+        }
         screen.value = parseFloat(listeValeurs[0]) / parseFloat(listeValeurs[1]);
     }
     
