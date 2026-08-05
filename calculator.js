@@ -2,19 +2,16 @@ const screen = document.getElementById("typingzone");
 screen.value = "";
 
 const displayNumber = function(){
-    const screen = document.getElementById("typingzone");
     screen.value += this.textContent;
 }
 
 const displayOperateur = function(){
-    const screen = document.getElementById("typingzone");
     if  (! estOperateur(screen.value[screen.value.length -1])){
         screen.value += this.textContent;
     }
 }
 
 const displayFloat = function(){
-    const screen = document.getElementById("typingzone");
     const expres = screen.value;
     for (let i = expres.length - 1; i >= 0; i--){
         if (estVirgule(expres[i])){
@@ -29,12 +26,10 @@ const displayFloat = function(){
 }
 
 const clearScreen = function(){
-    const screen = document.getElementById("typingzone");
     screen.value ="";
 }
 
 const eraseScreen = function(){
-    const screen = document.getElementById("typingzone");
     const valInput  = screen.value;
     screen.value = valInput.slice(0, valInput.length - 1);
 
@@ -50,7 +45,6 @@ const estVirgule = function(caractere){
 }
 
 const evaluer = function(){
-    const screen = document.getElementById("typingzone");
     const expression = screen.value;
     let operateur = "";
     for (let i = 0; i < expression.length ; i++){
