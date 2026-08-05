@@ -54,22 +54,24 @@ const evaluer = function(){
         }
     }
     const listeValeurs = expression.split(operateur);
+    const nombre1 = parseFloat(listeValeurs[0]);
+    const nombre2 = parseFloat(listeValeurs[1]);
 
     if (operateur === "+"){
-        screen.value = parseFloat(listeValeurs[0]) + parseFloat(listeValeurs[1]);
+        screen.value = nombre1 + nombre2;
     }
     else if (operateur === "-"){
-        screen.value = parseFloat(listeValeurs[0]) - parseFloat(listeValeurs[1]);
+        screen.value = nombre1 - nombre2;
     }
     else if (operateur === "x"){
-        screen.value = parseFloat(listeValeurs[0]) * parseFloat(listeValeurs[1]);
+        screen.value = nombre1 * nombre2;
     }
     else if (operateur === "/"){
-        if (parseFloat(listeValeurs[1]) === 0){
+        if (nombre2 === 0){
             screen.value = "ZeroDivisionError";
             return;
         }
-        screen.value = parseFloat(listeValeurs[0]) / parseFloat(listeValeurs[1]);
+        screen.value = nombre1 / nombre2;
     }
     
 
