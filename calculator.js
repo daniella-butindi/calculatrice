@@ -57,7 +57,7 @@ const evaluer = function(){
     const nombre1 = parseFloat(listeValeurs[0]);
     const nombre2 = parseFloat(listeValeurs[1]);
 
-    if (operateur === "+"){
+    if (operateur === "+"){  /*je pourrais utiliser un switch ici*/
         screen.value = nombre1 + nombre2;
     }
     else if (operateur === "-"){
